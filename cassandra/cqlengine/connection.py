@@ -227,7 +227,7 @@ def set_session(s):
     #if conn.session:
     #    log.warning("configuring new default connection for cqlengine when one was already set")
 
-    conn = Connection()
+    conn = Connection('DEFAULT_CONNECTION', s.cluster.contact_points)
     
     if s.row_factory is not dict_factory:
         raise CQLEngineException("Failed to initialize: 'Session.row_factory' must be 'dict_factory'.")
