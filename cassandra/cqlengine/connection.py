@@ -111,7 +111,7 @@ class Connection(object):
         self.setup_session()
 
     def setup_session(self):
-        self.session.row_factory = dict_factory
+        #self.session.row_factory = dict_factory
         enc = self.session.encoder
         enc.mapping[tuple] = enc.cql_encode_tuple
         _register_known_types(self.session.cluster)
