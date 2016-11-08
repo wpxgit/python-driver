@@ -218,7 +218,9 @@ def set_session(s):
     """
     Configures the default connection with a preexisting :class:`cassandra.cluster.Session`
 
-    Note: the mapper presently requires a Session :attr:`~.row_factory` set to ``dict_factory``.
+    Note: the mapper presently requires a Session :attr:`~.row_factory` set to ``
+    
+    ``.
     This may be relaxed in the future
     """
 
@@ -229,7 +231,7 @@ def set_session(s):
 
     conn = Connection('DEFAULT_CONNECTION', s.cluster.contact_points)
     
-    if s.row_factory is not dict_factory:
+    if s.cluster.ExecutionProfile.row_factory is not dict_factory:
         raise CQLEngineException("Failed to initialize: 'Session.row_factory' must be 'dict_factory'.")
     conn.session = s
     conn.cluster = s.cluster
