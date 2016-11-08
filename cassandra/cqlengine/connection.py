@@ -231,8 +231,8 @@ def set_session(s):
 
     conn = Connection('DEFAULT_CONNECTION', s.cluster.contact_points)
     
-    if s.cluster.ExecutionProfile.row_factory is not dict_factory:
-        raise CQLEngineException("Failed to initialize: 'Session.row_factory' must be 'dict_factory'.")
+    #if s.cluster.ExecutionProfile.row_factory is not dict_factory:
+    #    raise CQLEngineException("Failed to initialize: 'Session.row_factory' must be 'dict_factory'.")
     conn.session = s
     conn.cluster = s.cluster
 
